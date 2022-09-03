@@ -10,6 +10,8 @@ import Preview from "./pages/Preview";
 import Profile from './pages/Profile'
 import SubscriptionTiers from './pages/Subscriptions'
 import MonthlyFeedback from './pages/MonthlyFeedback'
+import FitQuiz from './pages/FitQuiz'
+
 
 function App() {
   return (
@@ -21,6 +23,8 @@ function App() {
         <Route path="/profile" element={<Profile />} />
         <Route path="/subscriptionTiers" element={<SubscriptionTiers />} />
         <Route path="/monthlyFeedback" element={<MonthlyFeedback />} />
+        <Route path="/FitQuiz" element={<FitQuiz />} />
+
       </Routes>
     </div>
   );
