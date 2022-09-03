@@ -9,21 +9,6 @@ import NavBar from "./components/NavBar";
 import Preview from "./pages/Preview";
 
 function App() {
-  const [userId, setUserId] = useState(null);
-  const storeUser = useMutation("storeUser");
-  const addChannel = useMutation("addChannel");
-  const { logout, user } = useAuth0();
-  useEffect(() => {
-    // Store the user in the database.
-    // Recall that `storeUser` gets the user information via the `auth`
-    // object on the server. You don't need to pass anything manually here.
-    async function createUser() {
-      const id = await storeUser();
-      setUserId(id);
-    }
-    createUser();
-    return () => setUserId(null);
-  }, [storeUser]);
   return (
     <div className="App">
       <NavBar />
