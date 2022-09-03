@@ -1,73 +1,149 @@
 import * as React from 'react';
+import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import CssBaseline from '@mui/material/CssBaseline';
+import CardHeader from '@mui/material/CardHeader';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import {useNavigate} from "react-router-dom";
+import StarIcon from '@mui/icons-material/StarBorder';
 
 const cards = [{
     key: 1,
     title: 'Low Tier',
-    description: 'The low tier provides quality clothing at an incredibly low cost of 10$.  Our algorithm takes into account your preferences based on the profile quiz submitted earlier.',
-    imageLink: require('./../assets/lowTier.jpeg')
+    description: [
+        'Low Cost  \n',
+        'Quality Material \n',
+        'Will provide trendy clothing \n',
+        'Customized to your needs \n',
+      ],
+    imageLink: require('./../assets/lowTier.jpeg'),
+    buttonText: 'Select Option',
+    buttonVariant: 'outlined',
+    price: '10',
+    subheader: 'The way to get trendy clothes for cheap'
 }, {
     key: 2,
     title: 'Middle Tier',
-    description: 'The middle tier provides trendy quality clothing at an incredibly low cost of 15$. Our algorithm takes into account your preferences based on the profile quiz submitted earlier.',
-    imageLink: require('./../assets/mediumTier.jpeg')
+    description: [
+        'Medium Cost \n',
+        'Quality Material \n',
+        'Will provide trendy clothing \n',
+        'Customized to your needs \n',
+      ],
+    imageLink: require('./../assets/mediumTier.jpeg'),
+    buttonText: 'Reccomended Option',
+    buttonVariant: 'contained',
+    price: '15',
+    subheader: 'The way to get the trendiest clothes for cheap'
 }, {
     key: 3,
     title: 'High Tier',
-    description: 'The high tier provides the trendiest luxury clothing at an incredibly low cost of 30$.  Our algorithm takes into account your preferences based on the profile quiz submitted earlier.',
-    imageLink: require('./../assets/highTier.jpeg')
+    description: [
+        'High Cost \n',
+        'Quality Material \n',
+        'Will provide trendy clothing \n',
+        'Customized to your needs \n',
+      ],
+    imageLink: require('./../assets/highTier.jpeg'),
+    buttonText: 'Select Option',
+    buttonVariant: 'outlined',
+    price: '30',
+    subheader: 'The way to get luxury clothes for cheap'
 }];
 
 const theme = createTheme();
 
 
-export default function Album() {
+export default function Subscriptions() {
  const navigate = useNavigate()
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
+      <h2>
+        Find your subscription
+      </h2>
       <main>      
         <Container sx={{ py: 8 }} maxWidth="md">
           {/* End hero unit */}
           <Grid container spacing={4}>
             {cards.map((card) => (
-              <Grid item key={card.key} xs={12} sm={6} md={4} style={{paddingRight: 10 }}>
-                <Card
-                  sx={{ height: '100%', display: 'flex', flexDirection: 'column', color: '#000'}}
-                >
-                  <CardMedia
+             <Grid
+             item
+             key={card.title}
+             xs={12}
+             sm={card.title === 'Middle Tier' ? 12 : 6}
+             md={4}
+           >
+             <Card>
+               <CardHeader
+                 title={card.title}
+                 subheader={card.subheader}
+                 titleTypographyProps={{ align: 'center' }}
+                 action={card.title === 'Pro' ? <StarIcon /> : null}
+                 subheaderTypographyProps={{
+                   align: 'center',
+                 }}
+                 sx={{
+                   backgroundColor: (theme) =>
+                     theme.palette.mode === 'light'
+                       ? theme.palette.grey[200]
+                       : theme.palette.grey[700],
+                 }}
+               />
+               <CardMedia
                     component="img"
                     image={card.imageLink}
                   />
-                  <CardContent sx={{ flexGrow: 1 }}>
-                    <Typography gutterBottom variant="h5" component="h2">
-                      {card.title}
-                    </Typography>
-                    <Typography>
-                        {card.description}
-                    </Typography>
-                  </CardContent>
-                  <CardActions>
-                        <Button size="small" onClick={() => {
-                            navigate("/boxSelection", {
-                                state: { 
-                                    option: card.title 
-                                }
-                            })
-                        }}>Select</Button>
-                  </CardActions>
-                </Card>
-              </Grid>
+
+               <CardContent>
+                 <Box
+                   sx={{
+                     display: 'flex',
+                     justifyContent: 'center',
+                     alignItems: 'baseline',
+                     mb: 2,
+                   }}
+                 >
+                   <Typography component="h2" variant="h3" color="text.primary">
+                     ${card.price}
+                   </Typography>
+                   <Typography variant="h6" color="text.secondary">
+                     /mo
+                   </Typography>
+                 </Box>
+                 <ul>
+                   {card.description.map((line) => (
+                     <Typography
+                       component="li"
+                       variant="subtitle1"
+                       align="center"
+                       key={line}
+                     >
+                       {line}
+                     </Typography>
+                   ))}
+                 </ul>
+               </CardContent>
+               <CardActions>
+                 <Button fullWidth variant={card.buttonVariant} onClick={() => {
+                     navigate("/boxSelection", {
+                        state: { 
+                            option: card.title 
+                        }
+                    })
+                 }}>
+                   {card.buttonText}
+                 </Button>
+               </CardActions>
+             </Card>
+           </Grid>
             ))}
           </Grid>
         </Container>
@@ -75,3 +151,15 @@ export default function Album() {
     </ThemeProvider>
   );
 }
+
+//<Button size="small" onClick={() => {
+//     navigate("/boxSelection", {
+//         state: { 
+//             option: card.title 
+//         }
+//     })
+// }}>Select</Button>
+
+{/* <Card
+                  sx={{ height: '100%', display: 'flex', flexDirection: 'column', color: '#000'}}
+                ></Card> */}
