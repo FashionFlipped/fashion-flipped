@@ -18,27 +18,33 @@ export function cosinesim(A, B) {
 }
 
 export default query(async ({ db }, user) => {
+  console.log(user.sizeBottom);
+  console.log(user.sizeTop);
   const recommendationRows = db
     .table("clothing")
     .filter((q) => q.eq(false, q.field("reserved")))
-    .filter(
-      (q) =>
-        q.eq(user.male, q.field("male")) || q.eq(user.female, q.field("female"))
+    .filter((q) =>
+      q.or(
+        q.eq(user.male, q.field("male")),
+        q.eq(user.female, q.field("female"))
+      )
     )
-    .filter(
-      (q) =>
-        q.eq(user.sizeBottom, q.field("sizeBottom")) ||
+    .filter((q) =>
+      q.or(
+        q.eq(user.sizeBottom, q.field("sizeBottom")),
         q.eq(user.sizeTop, q.field("sizeTop"))
+      )
     )
     .collect();
 
   let recommendations = await recommendationRows;
+  console.log(recommendations.length);
   let recos = recommendations.map((rec) => {
     return {
       ...rec,
       distance: cosinesim(rec.features, user.profile),
     };
   });
-  recos = recos.sort((a, b) => a.distance - b.distance);
+  recos = recos.sort((a, b) => b.distance - a.distance);
   return recos;
 });

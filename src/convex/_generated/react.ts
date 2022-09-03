@@ -9,6 +9,7 @@
  * @module
  */
 
+import type getQuizClothing from "../getQuizClothing";
 import type getRecommendation from "../getRecommendation";
 import type setSubscription from "../setSubscription";
 import type storeClothing from "../storeClothing";
@@ -27,6 +28,7 @@ import type { ClientMutation, ClientQuery } from "convex/server";
  */
 export type ConvexAPI = {
   queries: {
+    getQuizClothing: ClientQuery<typeof getQuizClothing>;
     getRecommendation: ClientQuery<typeof getRecommendation>;
   };
   mutations: {
