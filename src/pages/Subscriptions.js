@@ -43,7 +43,7 @@ export default function Album() {
             {cards.map((card) => (
               <Grid item key={card.key} xs={12} sm={6} md={4} style={{paddingRight: 10 }}>
                 <Card
-                  sx={{ height: '100%', display: 'flex', flexDirection: 'column'}}
+                  sx={{ height: '100%', display: 'flex', flexDirection: 'column', color: '#000'}}
                 >
                   <CardMedia
                     component="img"
