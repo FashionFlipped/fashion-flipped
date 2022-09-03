@@ -1,7 +1,7 @@
 import { useAuth0 } from "@auth0/auth0-react";
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { useMutation, useQuery } from "./convex/_generated/react.ts";
+import { useMutation, useQuery } from "./../convex/_generated/react.ts";
 
 import "./NavBar.css";
 
