@@ -3,5 +3,10 @@
   "team": "fashionflipped",
   "prodUrl": "https://fortunate-llama-343.convex.cloud",
   "functions": "convex/",
-  "authInfo": []
+  "authInfo": [
+    {
+      "domain": "https://dev-b49-2o7b.us.auth0.com",
+      "applicationID": "bqjwQn8cnaMQC7aFxc7opDMFXiSyz6We"
+    }
+  ]
 }

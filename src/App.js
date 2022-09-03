@@ -1,6 +1,7 @@
 import * as React from "react";
 import { Routes, Route, Link } from "react-router-dom";
 import "./App.css";
+import Auth from "./pages/Auth";
 
 function App() {
   return (
@@ -10,3 +11,5 @@ function App() {
     </div>
   );
 }
+
+export default App;
