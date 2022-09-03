@@ -33,9 +33,7 @@ const NavBar = () => {
             </Link>
             <Link
               to="/"
-              className={`nav-item ${
-                location.pathname === "/boxSelection" ? "selected" : ""
-              }`}
+              className={`nav-item`}
               onClick={() => logout({ returnTo: window.location.origin })}
             >
               Logout
@@ -51,13 +49,7 @@ const NavBar = () => {
             >
               Home
             </Link>
-            <Link
-              to="/"
-              className={`nav-item ${
-                location.pathname === "/boxSelection" ? "selected" : ""
-              }`}
-              onClick={loginWithRedirect}
-            >
+            <Link to="/" className={`nav-item`} onClick={loginWithRedirect}>
               Login
             </Link>
           </>
