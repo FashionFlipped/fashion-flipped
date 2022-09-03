@@ -1,0 +1,36 @@
+.nav-container {
+  display: flex;
+  flex-direction: row;
+  width: 100vw;
+  padding: 16px;
+  align-items: baseline;
+  box-shadow: 0px 0px 5px #d4d4d4;
+}
+
+.nav-title {
+  text-decoration: none;
+  color: #000;
+  font-weight: bold;
+  font-size: 28px;
+}
+
+.nav-items {
+  margin-left: 16px;
+}
+
+.nav-item {
+  text-decoration: none;
+  color: #708090;
+  background-color: transparent;
+  font-weight: 400;
+  font-weight: bold;
+  margin-right: 16px;
+}
+
+.selected {
+  color: #000;
+}
+
+.nav-item:hover {
+  color: #000;
+}

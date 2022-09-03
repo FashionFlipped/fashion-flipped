@@ -4,6 +4,9 @@ import "./App.css";
 import Auth from "./pages/Auth";
 import { useMutation, useQuery } from "./convex/_generated/react.ts";
 import { useAuth0 } from "@auth0/auth0-react";
+import BoxSelection from "./pages/BoxSelection";
+import NavBar from "./components/NavBar";
+import Preview from "./pages/Preview";
 
 function App() {
   const [userId, setUserId] = useState(null);
@@ -23,11 +26,11 @@ function App() {
   }, [storeUser]);
   return (
     <div className="App">
-      <h1>Welcome to React Router!</h1>
-      <button onClick={() => logout({ returnTo: window.location.origin })}>
-        Logout
-      </button>
-      <Routes></Routes>
+      <NavBar />
+      <Routes>
+        <Route path="/" element={<Preview />} />
+        <Route path="/boxSelection" element={<BoxSelection />} />
+      </Routes>
     </div>
   );
 }
