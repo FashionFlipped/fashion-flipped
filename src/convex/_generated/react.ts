@@ -9,6 +9,7 @@
  * @module
  */
 
+import type storeUser from "../storeUser";
 import type { OptimisticLocalStore as GenericOptimisticLocalStore } from "convex/browser";
 import type { ClientMutation, ClientQuery } from "convex/server";
 
@@ -23,7 +24,9 @@ import type { ClientMutation, ClientQuery } from "convex/server";
  */
 export type ConvexAPI = {
   queries: {};
-  mutations: {};
+  mutations: {
+    storeUser: ClientMutation<typeof storeUser>;
+  };
 };
 
 import { makeUseQuery, makeUseMutation, makeUseConvex } from "convex/react";
