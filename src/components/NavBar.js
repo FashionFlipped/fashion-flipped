@@ -32,6 +32,14 @@ const NavBar = () => {
               Customize
             </Link>
             <Link
+              to="/profile"
+              className={`nav-item ${
+                location.pathname === "/profile" ? "selected" : ""
+              }`}
+            >
+              Profile
+            </Link>
+            <Link
               to="/"
               className={`nav-item`}
               onClick={() => logout({ returnTo: window.location.origin })}
