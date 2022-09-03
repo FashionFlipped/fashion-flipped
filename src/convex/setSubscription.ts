@@ -19,11 +19,6 @@ export default mutation(
       return user._id;
     }
     // If it's a new identity, create a new `User`.
-    return db.insert("users", {
-      name: identity.name!,
-      tokenIdentifier: identity.tokenIdentifier,
-      subscription: subscription,
-      // The `_id` field will be assigned by the backend.
-    });
+    throw new Error("no user to modify");
   }
 );
