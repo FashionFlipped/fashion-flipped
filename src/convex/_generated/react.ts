@@ -9,6 +9,9 @@
  * @module
  */
 
+import type getRecommendation from "../getRecommendation";
+import type setSubscription from "../setSubscription";
+import type storeClothing from "../storeClothing";
 import type storeUser from "../storeUser";
 import type { OptimisticLocalStore as GenericOptimisticLocalStore } from "convex/browser";
 import type { ClientMutation, ClientQuery } from "convex/server";
@@ -23,8 +26,12 @@ import type { ClientMutation, ClientQuery } from "convex/server";
  * `ConvexReactClient` to create app-specific types.
  */
 export type ConvexAPI = {
-  queries: {};
+  queries: {
+    getRecommendation: ClientQuery<typeof getRecommendation>;
+  };
   mutations: {
+    setSubscription: ClientMutation<typeof setSubscription>;
+    storeClothing: ClientMutation<typeof storeClothing>;
     storeUser: ClientMutation<typeof storeUser>;
   };
 };

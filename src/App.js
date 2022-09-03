@@ -12,19 +12,25 @@ import SubscriptionTiers from './pages/Subscriptions'
 import MonthlyFeedback from './pages/MonthlyFeedback'
 import FitQuiz from './pages/FitQuiz'
 
-
 function App() {
+  const { logout, user, isAuthenticated, loginWithRedirect } = useAuth0();
+  const storeUser = useMutation("storeUser");
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      storeUser();
+    }
+  }, [isAuthenticated]);
   return (
     <div className="App">
       <NavBar />
       <Routes>
         <Route path="/" element={<Preview />} />
-        <Route path="/boxSelection" element={<BoxSelection />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/subscriptionTiers" element={<SubscriptionTiers />} />
         <Route path="/monthlyFeedback" element={<MonthlyFeedback />} />
         <Route path="/FitQuiz" element={<FitQuiz />} />
-
+        <Route path="/boxSelection" element={<BoxSelection />} />
       </Routes>
     </div>
   );

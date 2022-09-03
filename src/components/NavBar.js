@@ -7,14 +7,7 @@ import "./NavBar.css";
 
 const NavBar = () => {
   const location = useLocation();
-  const storeUser = useMutation("storeUser");
   const { logout, user, isAuthenticated, loginWithRedirect } = useAuth0();
-
-  useEffect(() => {
-    if (isAuthenticated) {
-      storeUser();
-    }
-  }, [isAuthenticated]);
 
   return (
     <div className="nav-container">
@@ -31,14 +24,6 @@ const NavBar = () => {
               }`}
             >
               Preview
-            </Link>
-            <Link
-              to="/boxSelection"
-              className={`nav-item ${
-                location.pathname === "/boxSelection" ? "selected" : ""
-              }`}
-            >
-              Customize
             </Link>
             <Link
               to="/profile"

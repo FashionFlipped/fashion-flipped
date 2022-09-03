@@ -12,6 +12,7 @@ import Auth from "./pages/Auth";
 const convex = new ConvexReactClient(clientConfig);
 const authInfo = convexConfig.authInfo[0];
 
+
 ReactDOM.render(
   <BrowserRouter>
     <ConvexProviderWithAuth0
