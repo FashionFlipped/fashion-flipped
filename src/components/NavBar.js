@@ -7,14 +7,7 @@ import "./NavBar.css";
 
 const NavBar = () => {
   const location = useLocation();
-  const storeUser = useMutation("storeUser");
   const { logout, user, isAuthenticated, loginWithRedirect } = useAuth0();
-
-  useEffect(() => {
-    if (isAuthenticated) {
-      storeUser();
-    }
-  }, [isAuthenticated]);
 
   return (
     <div className="nav-container">
