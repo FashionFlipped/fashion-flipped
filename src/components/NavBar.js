@@ -26,14 +26,6 @@ const NavBar = () => {
               Preview
             </Link>
             <Link
-              to="/boxSelection"
-              className={`nav-item ${
-                location.pathname === "/boxSelection" ? "selected" : ""
-              }`}
-            >
-              Customize
-            </Link>
-            <Link
               to="/profile"
               className={`nav-item ${
                 location.pathname === "/profile" ? "selected" : ""

@@ -25,10 +25,10 @@ function App() {
       <NavBar />
       <Routes>
         <Route path="/" element={<Preview />} />
-        <Route path="/boxSelection" element={<BoxSelection />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/subscriptionTiers" element={<SubscriptionTiers />} />
         <Route path="/monthlyFeedback" element={<MonthlyFeedback />} />
+        <Route path="/boxSelection" element={<BoxSelection />} />
       </Routes>
     </div>
   );
