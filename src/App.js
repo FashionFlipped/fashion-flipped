@@ -16,6 +16,7 @@ function App() {
     // object on the server. You don't need to pass anything manually here.
     async function createUser() {
       const id = await storeUser();
+      console.log("storing user")
       setUserId(id);
     }
     createUser();
