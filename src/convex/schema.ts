@@ -12,5 +12,6 @@ export default defineSchema({
   users: defineTable({
     name: s.string(),
     tokenIdentifier: s.string(),
+    subscription: s.string(),
   }),
 });
