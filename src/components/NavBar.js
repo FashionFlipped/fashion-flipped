@@ -1,11 +1,20 @@
 import { useAuth0 } from "@auth0/auth0-react";
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { useMutation, useQuery } from "./../convex/_generated/react.ts";
+
 import "./NavBar.css";
 
 const NavBar = () => {
   const location = useLocation();
+  const storeUser = useMutation("storeUser");
   const { logout, user, isAuthenticated, loginWithRedirect } = useAuth0();
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      storeUser();
+    }
+  }, [isAuthenticated]);
 
   return (
     <div className="nav-container">
@@ -30,6 +39,14 @@ const NavBar = () => {
               }`}
             >
               Customize
+            </Link>
+            <Link
+              to="/profile"
+              className={`nav-item ${
+                location.pathname === "/profile" ? "selected" : ""
+              }`}
+            >
+              Profile
             </Link>
             <Link
               to="/"
