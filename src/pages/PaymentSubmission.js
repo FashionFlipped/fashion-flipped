@@ -17,10 +17,19 @@ function PaymentSubmission () {
   const location = useLocation()
   console.log(location)
 
+  const submitPayment = () => {
+    
+  }
+
   useEffect(() => {
     if(location.state == null){
       navigate('/subscriptionTiers')
     }
+
+    fetch("./api/hello")
+    .then(response => response.text())
+    .then(text => console.log(text))
+    .catch(error => console.log(error));
   }, []);
   
   return(

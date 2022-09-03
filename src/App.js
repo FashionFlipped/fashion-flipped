@@ -4,7 +4,7 @@ import "./App.css";
 import Auth from "./pages/Auth";
 import { useMutation, useQuery } from "./convex/_generated/react.ts";
 import { useAuth0 } from "@auth0/auth0-react";
-import BoxSelection from "./pages/BoxSelection";
+import PaymentSubmission from "./pages/PaymentSubmission";
 import NavBar from "./components/NavBar";
 import Preview from "./pages/Preview";
 import Profile from './pages/Profile'
@@ -31,7 +31,7 @@ function App() {
         <Route path="/subscriptionTiers" element={<SubscriptionTiers />} />
         <Route path="/monthlyFeedback" element={<MonthlyFeedback />} />
         <Route path="/FitQuiz" element={<FitQuiz />} />
-        <Route path="/boxSelection" element={<BoxSelection />} />
+        <Route path="/boxSelection" element={<PaymentSubmission />} />
       </Routes>
     </div>
   );
