@@ -21,7 +21,10 @@ import { useState } from 'react';
     const styles = {
         container: {
           backgroundColor: "#f1f1f1",
-          display: flexbox
+          display: 'flex',
+          flexDirection: 'row',
+          justifyContent: 'stretch'
+
         },
         inputText: {
           padding: "10px",
@@ -95,7 +98,7 @@ import { useState } from 'react';
         <br />
         <br />
         <div class="container" style={styles.container}>
-  <div class="row">
+  <div class="row" style={styles.container}>
     <div class="col-sm">
       One of three columns
     </div>

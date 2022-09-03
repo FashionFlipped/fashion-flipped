@@ -23,7 +23,7 @@ const NavBar = () => {
                 location.pathname === "/" ? "selected" : ""
               }`}
             >
-              Preview
+              Home
             </Link>
             <Link
               to="/profile"
@@ -32,6 +32,14 @@ const NavBar = () => {
               }`}
             >
               Profile
+            </Link>
+            <Link
+              to="/subscriptionTiers"
+              className={`nav-item ${
+                location.pathname === "/subscriptionTiers" ? "selected" : ""
+              }`}
+            >
+              Subscription
             </Link>
             <Link
               to="/"

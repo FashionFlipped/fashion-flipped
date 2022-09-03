@@ -11,6 +11,7 @@ import Profile from './pages/Profile'
 import SubscriptionTiers from './pages/Subscriptions'
 import MonthlyFeedback from './pages/MonthlyFeedback'
 import FitQuiz from './pages/FitQuiz'
+import Landing from "./pages/Landing";
 
 function App() {
   const { logout, user, isAuthenticated, loginWithRedirect } = useAuth0();
@@ -25,8 +26,8 @@ function App() {
     <div className="App">
       <NavBar />
       <Routes>
-        <Route path="/" element={<Preview />} />
-        <Route path="/profile" element={<Profile />} />
+        <Route path="/" element={<Landing />} />
+        <Route path="/profile" element={<FitQuiz />} />
         <Route path="/subscriptionTiers" element={<SubscriptionTiers />} />
         <Route path="/monthlyFeedback" element={<MonthlyFeedback />} />
         <Route path="/FitQuiz" element={<FitQuiz />} />
