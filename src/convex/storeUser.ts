@@ -38,6 +38,7 @@ export default mutation(async ({ db, auth }): Promise<Id<"users">> => {
   return db.insert("users", {
     name: identity.name!,
     tokenIdentifier: identity.tokenIdentifier,
+    subscription: "none",
     // The `_id` field will be assigned by the backend.
   });
 });
