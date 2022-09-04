@@ -2,6 +2,7 @@ import { flexbox } from "@mui/system";
 import * as React from "react";
 import { useState } from "react";
 import createProfile from "../api/createProfile";
+import useQuizResults from "../api/useQuizResults";
 import { useMutation, useQuery } from "./../convex/_generated/react.ts";
 import "./FitQuiz.css";
 
@@ -20,7 +21,7 @@ function Quiz({ addChoreLog }) {
 
   const [pickImages, setPickImages] = useState(false);
 
-  const images = useQuery("getQuizClothing");
+  const images = useQuizResults();
   const user = useQuery("getUser");
   const [selected, setSelected] = useState({});
 
@@ -150,7 +151,6 @@ function Quiz({ addChoreLog }) {
           </div>
         </>
       )}
-
       {pickImages && images && images.length >= 9 && (
         <ImagesDisplay
           images={images}
@@ -176,7 +176,9 @@ const ImagesDisplay = ({ images, selected, setSelected, pickTimes }) => {
   return (
     <>
       <div className="images-container">
-        <h2>{`Pick Styles You Would Wear (${pickTimes + 1}/3)`}</h2>
+        <h2 className="preview-title">{`Pick Styles You Would Wear (${
+          pickTimes + 1
+        }/3)`}</h2>
         <div className="images-row">
           <div className="images-col">
             {images.slice(0, 3).map((image) => (
