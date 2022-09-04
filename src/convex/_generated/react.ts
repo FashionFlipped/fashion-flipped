@@ -11,6 +11,7 @@
 
 import type getQuizClothing from "../getQuizClothing";
 import type getRecommendation from "../getRecommendation";
+import type getUser from "../getUser";
 import type sendMessage from "../sendMessage";
 import type setProfileMeta from "../setProfileMeta";
 import type setSubscription from "../setSubscription";
@@ -33,6 +34,7 @@ export type ConvexAPI = {
   queries: {
     getQuizClothing: ClientQuery<typeof getQuizClothing>;
     getRecommendation: ClientQuery<typeof getRecommendation>;
+    getUser: ClientQuery<typeof getUser>;
   };
   mutations: {
     sendMessage: ClientMutation<typeof sendMessage>;

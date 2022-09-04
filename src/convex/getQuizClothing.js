@@ -1,12 +1,13 @@
 import { s } from "convex/schema";
+import { cosinesim } from "./getRecommendation";
 import { getUserHelper } from "./storeUser";
 import { query } from "./_generated/server";
 
 export default query(async ({ db, auth }) => {
   const user = await getUserHelper(db, auth);
-  console.log(JSON.stringify(user));
-  return db
-    .table("clothing")
+  const recommendationRows = db
+    .table("clothingLarge")
+    .filter((q) => q.eq(false, q.field("reserved")))
     .filter((q) =>
       q.or(
         q.eq(user.male, q.field("male")),
@@ -19,5 +20,26 @@ export default query(async ({ db, auth }) => {
         q.eq(user.sizeTop, q.field("sizeTop"))
       )
     )
-    .take(9);
+    .collect();
+
+  let recommendations = await recommendationRows;
+  console.log(recommendations.length);
+  let recos = recommendations.map((rec) => {
+    return {
+      ...rec,
+      distance: cosinesim(rec.features, user.profile),
+    };
+  });
+  let tops = recos
+    .sort((a, b) => b.distance - a.distance)
+    .filter((rec) => rec.sizeTop !== "none")
+    .filter((rec, i) => i > 10 && i % 5 === 0)
+    .filter((rec, i) => i < 5);
+  let bottoms = recos
+    .sort((a, b) => b.distance - a.distance)
+    .filter((rec) => rec.sizeBottom !== "none")
+    .filter((rec, i) => i > 10 && i % 5 === 0)
+    .filter((rec, i) => i < 4);
+  recos = [...tops, ...bottoms].sort((a, b) => b.distance - a.distance);
+  return recos;
 });

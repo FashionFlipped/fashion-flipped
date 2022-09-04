@@ -1,0 +1,17 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 32px;
+}
+
+.preview-row {
+  display: flex;
+}
+
+.item {
+  border-radius: 16px;
+  margin: 16px;
+  object-fit: cover;
+  box-shadow: 0px 0px 10px #d4d4d4;
+}
