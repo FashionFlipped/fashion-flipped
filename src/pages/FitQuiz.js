@@ -33,7 +33,11 @@ function Quiz({ addChoreLog }) {
       let profile = createProfile(features);
       setProfile(profile).then(() => {
         if (pickTimes >= 2) {
-          window.location.replace("/preview");
+          if (user && user.subscription !== "none") {
+            window.location.replace("/preview");
+          } else {
+            window.location.replace("/subscriptionTiers");
+          }
         }
         setPickTimes((prev) => prev + 1);
       });
@@ -161,7 +165,7 @@ function Quiz({ addChoreLog }) {
       )}
       <div class="action">
         <button class="action-button" onClick={() => handleSubmit()}>
-          Get started
+          Next
         </button>
       </div>
     </div>

@@ -3,13 +3,20 @@ import { useQuery } from "./../convex/_generated/react.ts";
 import "./Preview.css";
 
 const Preview = () => {
+  const user = useQuery("getUser");
   const data = useQuery("getRecommendation");
+  React.useEffect(() => {
+    if (user && user.subscription == "none") {
+      window.location.replace("/subscriptionTiers");
+    }
+  }, [user]);
+
   return (
     <div>
       {data && (
         <>
           <div className="preview-container">
-            <h2 className="preview-title">Here's What Were Sending</h2>
+            <h2 className="preview-title">Here's What We're Sending</h2>
             <div className="preview-row">
               <div>
                 <div className="preview-row">
