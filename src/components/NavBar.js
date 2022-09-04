@@ -42,6 +42,14 @@ const NavBar = () => {
               Subscription
             </Link>
             <Link
+              to="/designer"
+              className={`nav-item ${
+                location.pathname === "/designer" ? "selected" : ""
+              }`}
+            >
+              Verified Designers
+            </Link>
+            <Link
               to="/"
               className={`nav-item`}
               onClick={() => logout({ returnTo: window.location.origin })}
@@ -58,6 +66,14 @@ const NavBar = () => {
               }`}
             >
               Home
+            </Link>
+            <Link
+              to="/designer"
+              className={`nav-item ${
+                location.pathname === "/designer" ? "selected" : ""
+              }`}
+            >
+              Verified Designers
             </Link>
             <Link to="/" className={`nav-item`} onClick={loginWithRedirect}>
               Login
