@@ -25,7 +25,7 @@ export default mutation(
     female,
     top,
     bottom
-  ): Promise<Id<"clothingLarge">> => {
+  ): Promise<Id<"clothingSmall">> => {
     console.log(url);
     //const identity = await auth.getUserIdentity();
     //if (!identity) {
@@ -34,7 +34,7 @@ export default mutation(
 
     // If it's a new identity, create a new `User`.
     console.log(bottom);
-    return db.insert("clothingLarge", {
+    return db.insert("clothingSmall", {
       url: url,
       features,
       male: male,

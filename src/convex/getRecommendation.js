@@ -21,7 +21,7 @@ export function cosinesim(A, B) {
 export default query(async ({ db, auth }) => {
   const user = await getUserHelper(db, auth);
   const recommendationRows = db
-    .table("clothingLarge")
+    .table("clothingSmall")
     .filter((q) => q.eq(false, q.field("reserved")))
     .filter((q) =>
       q.or(

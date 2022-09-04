@@ -19,6 +19,15 @@ export default defineSchema({
     sizeTop: s.string(),
     sizeBottom: s.string(),
   }),
+  clothingSmall: defineTable({
+    url: s.string(),
+    features: s.array(s.number()),
+    male: s.boolean(),
+    female: s.boolean(),
+    reserved: s.boolean(),
+    sizeTop: s.string(),
+    sizeBottom: s.string(),
+  }),
   distances: defineTable({
     user: s.id("users"),
     clothing: s.id("clothing"),
