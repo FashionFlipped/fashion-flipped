@@ -27,7 +27,8 @@ const cards = [{
     buttonText: 'Select Option',
     buttonVariant: 'outlined',
     price: '10',
-    subheader: 'The way to get trendy clothes for cheap'
+    subheader: 'The way to get trendy clothes for cheap',
+    amount: '2'
 }, {
     key: 2,
     title: 'Middle Tier',
@@ -41,7 +42,8 @@ const cards = [{
     buttonText: 'Reccomended Option',
     buttonVariant: 'contained',
     price: '15',
-    subheader: 'The way to get the trendiest clothes for cheap'
+    subheader: 'The way to get the trendiest clothes for cheap',
+    amount: '4'
 }, {
     key: 3,
     title: 'High Tier',
@@ -55,7 +57,8 @@ const cards = [{
     buttonText: 'Select Option',
     buttonVariant: 'outlined',
     price: '30',
-    subheader: 'The way to get luxury clothes for cheap'
+    subheader: 'The way to get luxury clothes for cheap',
+    amount: '8'
 }];
 
 const theme = createTheme();
@@ -135,7 +138,8 @@ export default function Subscriptions() {
                  <Button fullWidth variant={card.buttonVariant} onClick={() => {
                      navigate("/boxSelection", {
                         state: { 
-                            option: card.title 
+                            option: card.title,
+                            amount: card.amount 
                         }
                     })
                  }}>
