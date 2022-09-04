@@ -14,7 +14,7 @@ function Quiz({ addChoreLog }) {
   const [heightFeet, setFHeight] = useState();
   const [heightInches, setIHeight] = useState();
 
-  const [pickImages, setPickImages] = useState(true);
+  const [pickImages, setPickImages] = useState(false);
 
   const images = useQuery("getQuizClothing");
   const [selected, setSelected] = useState({});
@@ -36,68 +36,89 @@ function Quiz({ addChoreLog }) {
     <div>
       {!pickImages && (
         <>
-          <label>Full Name:</label>
-          <br />
-          <input
-            name="name"
-            type="text"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-          />
-          <br />
-          <label>Gender:</label>
-          <br />
-          <select value={gender} onChange={(e) => setGender(e.target.value)}>
-            <option name="male"> Male</option>
-            <option name="female">Female</option>
-          </select>
-          <br />
-          <label>Favorite Season:</label>
-          <br />
-          <select value={season} onChange={(e) => setSeason(e.target.value)}>
-            <option name="fall"> Fall</option>
-            <option name="summer">Summer</option>
-            <option name="winter">Winter</option>
-            <option name="spring">Spring</option>
-          </select>
-          <br />
-          <label>Height (feet):</label>
-          <br />
-          <input
-            name="heightfeet"
+        <div class="container">
+        <div class="card">
+        <form class="card-form">
+        <div class="input">
+        <input
+        name="name"
+        class="input-field"
+        type="text"
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+        />
+        <label class="input-label" type="text">Full Name</label>
+        </div>
+        <div class="input">
+
+        <select class="input-field" value={gender} onChange={(e) => setGender(e.target.value)}>
+        <option name="male"> Male</option>
+        <option name="female">Female</option>
+        </select>
+
+        <label class="input-label">Gender</label>
+        </div>
+
+        <div class="input">
+        <input
+            name="heightinches"
+            class="input-field"
             type="number"
             value={heightFeet}
             onChange={(e) => setFHeight(e.target.value)}
           />
-          <br />
-          <label>Height (inches):</label>
-          <br />
-          <input
+        <label class="input-label">Height (feet)</label>
+        </div>
+
+        <div class="input">
+        <input
             name="heightinches"
+            class="input-field"
             type="number"
             value={heightInches}
             onChange={(e) => setIHeight(e.target.value)}
           />
-          <br />
-          <label> Shirt Size </label>
-          <br />
-          <select value={ssize} onChange={(e) => setSSize(e.target.value)}>
+        <label class="input-label">Height (inches)</label>
+        </div>
+        
+        <div class="input">
+
+
+          <select class="input-field" value={ssize} onChange={(e) => setSSize(e.target.value)}>
             <option name="X-Small">X-Small</option>
             <option name="Small"> Small</option>
             <option name="Medium">Medium</option>
             <option name="Large">Large</option>
             <option name="X-Large">X-Large</option>
           </select>
-          <br />
-          <label> Pant Size </label>
-          <br />
-          <select value={psize} onChange={(e) => setPSize(e.target.value)}>
+
+        <label class="input-label"> Shirt Size </label>
+        </div>
+
+        <div class="input">
+
+
+          <select class="input-field" value={psize} onChange={(e) => setPSize(e.target.value)}>
             <option name="X-Small">X-Small</option>
             <option name="Small"> Small</option>
             <option name="Medium">Medium</option>
             <option name="Large">Large</option>
             <option name="X-Large">X-Large</option>
           </select>
+
+        <label class="input-label"> Pant Size </label>
+        </div>
+
+
+        <div class="action">
+        <button class="action-button" onClick={() => handleSubmit()}>Get started</button>
+        </div>
+        
+
+        </form>
+        </div>
+        </div>
+          
         </>
       )}
 
@@ -108,7 +129,6 @@ function Quiz({ addChoreLog }) {
           setSelected={setSelected}
         />
       )}
-      <button onClick={() => handleSubmit()}>Next</button>
     </div>
   );
 }
