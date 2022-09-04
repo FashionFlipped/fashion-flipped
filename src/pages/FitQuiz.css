@@ -1,0 +1,43 @@
+.images-container {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+.images-row {
+  display: flex;
+  flex-direction: row;
+  margin: 32px;
+}
+
+.images-col {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.image-button {
+  outline: none;
+  border: none;
+  background: none;
+  padding: 0;
+  margin: 0;
+}
+
+.image {
+  object-fit: cover;
+  margin: 16px;
+  border-radius: 16px;
+  border: 5px solid transparent;
+}
+
+.image:hover {
+  border: 5px solid lightblue;
+}
+
+.image-selected {
+  border: 5px solid blue;
+}
+.image-selected:hover {
+  border: 5px solid red;
+}

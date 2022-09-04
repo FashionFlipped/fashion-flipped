@@ -7,10 +7,10 @@ import { useAuth0 } from "@auth0/auth0-react";
 import BoxSelection from "./pages/BoxSelection";
 import NavBar from "./components/NavBar";
 import Preview from "./pages/Preview";
-import Profile from './pages/Profile'
-import SubscriptionTiers from './pages/Subscriptions'
-import MonthlyFeedback from './pages/MonthlyFeedback'
-import FitQuiz from './pages/FitQuiz'
+import Profile from "./pages/Profile";
+import SubscriptionTiers from "./pages/Subscriptions";
+import MonthlyFeedback from "./pages/MonthlyFeedback";
+import FitQuiz from "./pages/FitQuiz";
 import Landing from "./pages/Landing";
 
 function App() {
@@ -27,6 +27,7 @@ function App() {
       <NavBar />
       <Routes>
         <Route path="/" element={<Landing />} />
+        <Route path="/preview" element={<Preview />} />
         <Route path="/profile" element={<FitQuiz />} />
         <Route path="/subscriptionTiers" element={<SubscriptionTiers />} />
         <Route path="/monthlyFeedback" element={<MonthlyFeedback />} />

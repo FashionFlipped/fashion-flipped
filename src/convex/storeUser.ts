@@ -1,5 +1,6 @@
 import { Document, Id } from "./_generated/dataModel";
-import { mutation } from "./_generated/server";
+import { mutation, DatabaseReader } from "./_generated/server";
+import { Auth } from "convex/server";
 
 // Insert or update the user in a Convex table then return the document's Id.
 //
@@ -16,6 +17,20 @@ import { mutation } from "./_generated/server";
 // presence of which depends on the identity provider chosen. It's up to the
 // application developer to determine which ones are available and to decide
 // which of those need to be persisted.
+export async function getUserHelper(
+  db: DatabaseReader,
+  auth: Auth
+): Promise<Document<"users">> {
+  const identity = await auth.getUserIdentity();
+  if (!identity) {
+    throw new Error("Unauthenticated call to getUser");
+  }
+  return await db
+    .table("users")
+    .filter((q) => q.eq(q.field("tokenIdentifier"), identity!.tokenIdentifier))
+    .unique();
+}
+
 export default mutation(async ({ db, auth }): Promise<Id<"users">> => {
   const identity = await auth.getUserIdentity();
   if (!identity) {
@@ -29,9 +44,7 @@ export default mutation(async ({ db, auth }): Promise<Id<"users">> => {
     .first();
   if (user !== null) {
     // If we've seen this identity before but the name has changed, patch the value.
-    if (user.name != identity.name) {
-      db.patch(user._id, { name: identity.name! });
-    }
+
     return user._id;
   }
   // If it's a new identity, create a new `User`.

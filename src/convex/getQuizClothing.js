@@ -1,7 +1,10 @@
 import { s } from "convex/schema";
+import { getUserHelper } from "./storeUser";
 import { query } from "./_generated/server";
 
-export default query(async ({ db }, user) => {
+export default query(async ({ db, auth }) => {
+  const user = await getUserHelper(db, auth);
+  console.log(JSON.stringify(user));
   return db
     .table("clothing")
     .filter((q) =>
