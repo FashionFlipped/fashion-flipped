@@ -21,7 +21,7 @@ export function cosinesim(A, B) {
 export default query(async ({ db, auth }) => {
   const user = await getUserHelper(db, auth);
   const recommendationRows = db
-    .table("clothing")
+    .table("clothingLarge")
     .filter((q) => q.eq(false, q.field("reserved")))
     .filter((q) =>
       q.or(
@@ -45,6 +45,8 @@ export default query(async ({ db, auth }) => {
       distance: cosinesim(rec.features, user.profile),
     };
   });
-  recos = recos.sort((a, b) => b.distance - a.distance);
+  recos = recos
+    .sort((a, b) => b.distance - a.distance)
+    .filter((rec, i) => i < 50 && i > 3);
   return recos;
 });
