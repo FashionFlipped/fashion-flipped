@@ -3,7 +3,7 @@ import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 import { useNavigate, useLocation } from "react-router-dom";
 import CheckoutForm from "./CheckoutForm";
-import "./PaymentSubmission.css";
+import "./PaymentSubmission2.css";
 
 // Make sure to call loadStripe outside of a component’s render to avoid
 // recreating the Stripe object on every render.
@@ -48,16 +48,16 @@ export default function PaymentSubmission() {
 
   return (
     <div className="App" >
-      <h1>
+      <h1 style={{fontSize: 40}}>
         Payment Submission Page
       </h1>      
       {location.state && location.state.option? (
         <div>
-        <h3>
+        <h3  style={{fontSize: 20}}>
           You selected:  {location.state.option}
         </h3>
         <h3>   </h3>
-        <h3>
+        <h3  style={{fontSize: 20}}>
           You will be recieving the following amount of completely customized outfits:  {location.state.amount}
         </h3>
         </div>
