@@ -24,6 +24,7 @@ export default defineSchema({
     sizeTop: s.string(),
     sizeBottom: s.string(),
     height: s.number(),
+    profile: s.array(s.number()),
   }),
   channels: defineTable({
     body: s.string(),

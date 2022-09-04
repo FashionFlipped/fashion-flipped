@@ -11,11 +11,12 @@
 
 import type getQuizClothing from "../getQuizClothing";
 import type getRecommendation from "../getRecommendation";
-import type setProfileMeta from "../setProfileMeta";
 import type sendMessage from "../sendMessage";
+import type setProfileMeta from "../setProfileMeta";
 import type setSubscription from "../setSubscription";
 import type storeClothing from "../storeClothing";
 import type storeUser from "../storeUser";
+import type updateStyleProfile from "../updateStyleProfile";
 import type { OptimisticLocalStore as GenericOptimisticLocalStore } from "convex/browser";
 import type { ClientMutation, ClientQuery } from "convex/server";
 
@@ -34,11 +35,12 @@ export type ConvexAPI = {
     getRecommendation: ClientQuery<typeof getRecommendation>;
   };
   mutations: {
-    setProfileMeta: ClientMutation<typeof setProfileMeta>;
     sendMessage: ClientMutation<typeof sendMessage>;
+    setProfileMeta: ClientMutation<typeof setProfileMeta>;
     setSubscription: ClientMutation<typeof setSubscription>;
     storeClothing: ClientMutation<typeof storeClothing>;
     storeUser: ClientMutation<typeof storeUser>;
+    updateStyleProfile: ClientMutation<typeof updateStyleProfile>;
   };
 };
 

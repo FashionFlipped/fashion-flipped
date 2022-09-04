@@ -57,6 +57,7 @@ export default mutation(async ({ db, auth }): Promise<Id<"users">> => {
     sizeTop: "",
     sizeBottom: "",
     height: 0,
+    profile: [],
     // The `_id` field will be assigned by the backend.
   });
 });

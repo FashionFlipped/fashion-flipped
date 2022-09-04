@@ -1,11 +1,13 @@
 import { flexbox } from "@mui/system";
 import * as React from "react";
 import { useState } from "react";
+import createProfile from "../api/createProfile";
 import { useMutation, useQuery } from "./../convex/_generated/react.ts";
 import "./FitQuiz.css";
 
 function Quiz({ addChoreLog }) {
   const setProfileMeta = useMutation("setProfileMeta");
+  const setProfile = useMutation("updateStyleProfile");
   const [gender, setGender] = useState();
   const [name, setName] = useState();
   const [ssize, setSSize] = useState();
@@ -20,15 +22,24 @@ function Quiz({ addChoreLog }) {
   const [selected, setSelected] = useState({});
 
   const handleSubmit = (e) => {
-    setProfileMeta(
-      name,
-      gender,
-      heightFeet * 12 + heightInches,
-      ssize,
-      psize
-    ).then(() => {
-      setPickImages(true);
-    });
+    if (pickImages) {
+      let features = images
+        .filter((image) => selected[image._id.id] === true)
+        .map((image) => image.features);
+      let profile = createProfile(features);
+      setProfile(profile);
+    } else {
+      setProfileMeta(
+        name,
+        gender,
+        heightFeet * 12 + heightInches,
+        ssize,
+        psize
+      ).then(() => {
+        setPickImages(true);
+      });
+    }
+
     e.preventDefault();
   };
 

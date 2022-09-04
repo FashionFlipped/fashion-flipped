@@ -1,5 +1,6 @@
 import { s } from "convex/schema";
 import { query } from "./_generated/server";
+import { getUserHelper } from "./storeUser";
 
 export function cosinesim(A, B) {
   var dotproduct = 0;
@@ -17,9 +18,8 @@ export function cosinesim(A, B) {
   return similarity;
 }
 
-export default query(async ({ db }, user) => {
-  console.log(user.sizeBottom);
-  console.log(user.sizeTop);
+export default query(async ({ db, auth }) => {
+  const user = await getUserHelper(db, auth);
   const recommendationRows = db
     .table("clothing")
     .filter((q) => q.eq(false, q.field("reserved")))
