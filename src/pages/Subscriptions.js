@@ -155,7 +155,14 @@ export default function Subscriptions() {
                       fullWidth
                       variant={card.buttonVariant}
                       style={{ color: "#6658d3", borderColor: "#6658d3" }}
-                      onClick={() => setSubscription(card.key)}
+                      onClick={() => {
+                        setSubscription(card.key)
+                        navigate("/boxSelection", {
+                          state: { 
+                              option: card.title 
+                          }
+                      })
+                      }}
                     >
                       {card.buttonText}
                     </Button>
