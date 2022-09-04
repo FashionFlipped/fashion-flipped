@@ -1,27 +1,27 @@
 [
     {
      "id": 1,
-     "question": "How do you garuntee the quality of the clothes?",
-     "answer": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates corporis vitae tempora quod provident tenetur culpa dolore facere? Earum, dolor?"
+     "question": "What are the services do you offer?",
+     "answer": "We offer opportunities for new and upcoming designers to upcycling trendy clothing for high prices while being paid. Furthermore, for those wishing to make their footprint on the enviornment, they will be able to participate in our subscription based program."
     },
     {
      "id": 2,
-     "question": "What are your policies on spoiled clothing?",
-     "answer": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Architecto iusto veniam eveniet labore impedit nam"
+     "question": "What are our preferred method of payment?",
+     "answer": "Since most of our transactions are taken online, credit or debit card payment is ideal. Mailing in checks or cash to one of warehouses is also an option but we would not be liable for any losses in the process."
     },
     {
      "id": 3,
-     "question": "Can I try your services for a trial perio",
-     "answer": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Praesentium, sed. Dolores,"
+     "question": "Are your services beginners friendly?",
+     "answer": "100%. In fact, majority of our users are those gaining interest in making an impact on the world. We will help you onboard onto our journey to make the world a better place."
     },
     {
      "id": 4,
-     "question": "what how does it take to upgrade a package",
-     "answer": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Praesentium, sed. Dolores, sequi."
+     "question": "What how does it take to upgrade a package?",
+     "answer": "If you have decided that you would like to upgrade your subscription, expect a response approximately 5 business days following your request. If you recieve no confirmation, feel free to ping us again to ensure your request was taken care of."
     },
     {
      "id": 5,
-     "question": "Where are your offices located around the world",
-     "answer": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Praesentium, sed. Dolores, sequi."
+     "question": "Where are your offices located around the world?",
+     "answer": "We have just over 3 in person locations. However, if you are a vendor feel free to mail into to your assigned warehouse. We cover all 48 mainland U.S. state, so chances are we will be able to accomodate you!"
     }
 ]
