@@ -18,3 +18,9 @@ form {
   width: 80vw;
   min-width: initial;
 }
+
+button {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}

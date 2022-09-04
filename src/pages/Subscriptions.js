@@ -22,7 +22,7 @@ const cards = [
     description: [
       "Low cost  \n",
       "Quality material \n",
-      "Trendy clothing \n",
+      "2 Trendy Outfits \n",
       "Customized to your needs \n",
     ],
     imageLink: require("./../assets/lowTier.jpeg"),
@@ -38,7 +38,7 @@ const cards = [
     description: [
       "Greater savings per unit\n",
       "Quality material \n",
-      "More customized clothing \n",
+      "4 Trendy outfits \n",
       "Customized to your needs \n",
     ],
     imageLink: require("./../assets/mediumTier.jpeg"),
@@ -54,7 +54,7 @@ const cards = [
     description: [
       "Luxury clothing for cheap \n",
       "The highest quality \n",
-      "The trendiest clothing  \n",
+      "8 Trendy outfits  \n",
       "Greater savings per unit \n",
     ],
     imageLink: require("./../assets/highTier.jpeg"),
@@ -80,12 +80,14 @@ export default function Subscriptions() {
         Find Your Subscription
       </h2>
       {user && user.subscription != "none" && (
+        <div style={{alignItems: 'center', justifyContent: 'center', paddingLeft: 575, paddingTop: 40}}>
         <button
           className="action-button"
           onClick={() => (window.location.href = "/preview")}
         >
           Preview Next Shipment
         </button>
+        </div>
       )}
       <main>
         <Container sx={{ py: 8 }} maxWidth="md">
@@ -159,7 +161,8 @@ export default function Subscriptions() {
                         setSubscription(card.key)
                         navigate("/boxSelection", {
                           state: { 
-                              option: card.title 
+                              option: card.title ,
+                              amount: card.amount 
                           }
                       })
                       }}
