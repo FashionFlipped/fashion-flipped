@@ -1,6 +1,6 @@
 import { ConvexHttpClient } from "convex/browser";
 import type { VercelRequest, VercelResponse } from "@vercel/node";
-//import fetch from "node-fetch";
+import fetch from "node-fetch";
 import clientConfig from "../convex/_generated/clientConfig";
 import { Id } from "../convex/_generated/dataModel";
 
