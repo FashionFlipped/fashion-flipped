@@ -12,6 +12,7 @@ import SubscriptionTiers from "./pages/Subscriptions";
 import MonthlyFeedback from "./pages/MonthlyFeedback";
 import FitQuiz from "./pages/FitQuiz";
 import Landing from "./pages/Landing";
+import Designer from "./pages/Designers"
 
 function App() {
   const { logout, user, isAuthenticated, loginWithRedirect } = useAuth0();
@@ -33,6 +34,8 @@ function App() {
         <Route path="/monthlyFeedback" element={<MonthlyFeedback />} />
         <Route path="/FitQuiz" element={<FitQuiz />} />
         <Route path="/boxSelection" element={<PaymentSubmission />} />
+        <Route path="/designer" element={<Designer />} />
+
       </Routes>
     </div>
   );

@@ -29,7 +29,7 @@ export const Question = styled.div`
   margin-bottom: 2px;
   display: flex;
   font-weight: normal;
-  background: #dea0a0;
+  background: #9bcf91;
   padding: 0.75em 1.12em;
   align-items: center;
 `;
