@@ -17,7 +17,9 @@
     "@types/node": "^18.7.14",
     "@types/react": "^18.0.18",
     "@types/react-dom": "^18.0.6",
+    "alert": "^5.1.1",
     "convex": "^0.1.10",
+    "express": "^4.17.1",
     "node-fetch": "^2.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -26,12 +28,11 @@
     "stripe": "^8.202.0",
     "styled-components": "^5.3.5",
     "typescript": "^4.8.2",
-    "web-vitals": "^2.1.4",
-    "express": "^4.17.1"
+    "web-vitals": "^2.1.4"
   },
   "devDependencies": {
-    "concurrently": "4.1.2",
-    "@vercel/node": "^2.5.13"
+    "@vercel/node": "^2.5.13",
+    "concurrently": "4.1.2"
   },
   "homepage": "http://localhost:3000/",
   "proxy": "http://localhost:4242",
