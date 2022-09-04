@@ -12,7 +12,7 @@ const Login = () => {
 const Auth = () => {
   return (
     <div>
-      {/* <NavBar /> */}
+      <NavBar />
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/login" element={<Login />} />

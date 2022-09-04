@@ -3,8 +3,10 @@ import questions from "../faq.json";
 import Banner from "../components/banner";
 
 import "./styles.css";
+import { useAuth0 } from "@auth0/auth0-react";
 
 const Landing = () => {
+  const { isAuthenticated, loginWithRedirect } = useAuth0();
   return (
     <>
       <div class="relative flex flex-col-reverse py-16 lg:pt-0 lg:flex-col lg:pb-0">
@@ -34,7 +36,14 @@ const Landing = () => {
               thrifts for our users at a cheap cost. <br></br>
               <br></br>Ready to elevate your style?
               <div class="action">
-                <button class="action-button" href="/profile">
+                <button
+                  class="action-button"
+                  onClick={() =>
+                    isAuthenticated
+                      ? (window.location.href = "/profile")
+                      : loginWithRedirect()
+                  }
+                >
                   Get started
                 </button>
               </div>
