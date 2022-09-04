@@ -1,11 +1,11 @@
 import { Document, Id } from "./_generated/dataModel";
 import { mutation } from "./_generated/server";
 
-export const createProfile = (features) => {
+export const createProfile = (features: number[][]) => {
   let res: number[] = [];
   for (let i = 0; i < features[0].length; i++) {
     let f = 0;
-    features.forEach((feature) => {
+    features.forEach((feature: number[]) => {
       f += feature[i];
     });
     res.push(f / features.length);
