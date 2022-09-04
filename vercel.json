@@ -1,0 +1,4 @@
+{
+    "rewrites": [{ "source": "/create-payment-intent/(.*)", "destination": "/create-payment-intent" }]
+  }
+  
