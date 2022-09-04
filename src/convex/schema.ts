@@ -25,4 +25,10 @@ export default defineSchema({
     sizeBottom: s.string(),
     height: s.number(),
   }),
+  channels: defineTable({
+    body: s.string(),
+    channel: s.id("channels"),
+    format: s.union(s.literal("text"), s.literal("giphy")),
+    user: s.id("users"),
+  }),
 });

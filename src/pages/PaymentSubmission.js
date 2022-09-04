@@ -26,7 +26,7 @@ function PaymentSubmission () {
       navigate('/subscriptionTiers')
     }
 
-    fetch("./api/hello")
+    fetch("/api/hello")
     .then(response => response.text())
     .then(text => console.log(text))
     .catch(error => console.log(error));
