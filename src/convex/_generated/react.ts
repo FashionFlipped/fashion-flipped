@@ -12,6 +12,7 @@
 import type getQuizClothing from "../getQuizClothing";
 import type getRecommendation from "../getRecommendation";
 import type setProfileMeta from "../setProfileMeta";
+import type sendMessage from "../sendMessage";
 import type setSubscription from "../setSubscription";
 import type storeClothing from "../storeClothing";
 import type storeUser from "../storeUser";
@@ -34,6 +35,7 @@ export type ConvexAPI = {
   };
   mutations: {
     setProfileMeta: ClientMutation<typeof setProfileMeta>;
+    sendMessage: ClientMutation<typeof sendMessage>;
     setSubscription: ClientMutation<typeof setSubscription>;
     storeClothing: ClientMutation<typeof storeClothing>;
     storeUser: ClientMutation<typeof storeUser>;
