@@ -18,13 +18,13 @@ const cards = [{
     key: 1,
     title: 'Low Tier',
     description: [
-        'Low Cost  \n',
-        'Quality Material \n',
-        'Will provide trendy clothing \n',
+        'Low cost  \n',
+        'Quality material \n',
+        'Trendy clothing \n',
         'Customized to your needs \n',
       ],
     imageLink: require('./../assets/lowTier.jpeg'),
-    buttonText: 'Select Option',
+    buttonText: 'Select option',
     buttonVariant: 'outlined',
     price: '10',
     subheader: 'The way to get trendy clothes for cheap',
@@ -33,14 +33,14 @@ const cards = [{
     key: 2,
     title: 'Middle Tier',
     description: [
-        'Medium Cost \n',
-        'Quality Material \n',
-        'Will provide trendy clothing \n',
+        'Greater savings per unit\n',
+        'Quality material \n',
+        'More customized clothing \n',
         'Customized to your needs \n',
       ],
     imageLink: require('./../assets/mediumTier.jpeg'),
-    buttonText: 'Reccomended Option',
-    buttonVariant: 'contained',
+    buttonText: 'Recommended option',
+    buttonVariant: 'outlined',
     price: '15',
     subheader: 'The way to get the trendiest clothes for cheap',
     amount: '4'
@@ -48,10 +48,10 @@ const cards = [{
     key: 3,
     title: 'High Tier',
     description: [
-        'High Cost \n',
-        'Quality Material \n',
-        'Will provide trendy clothing \n',
-        'Customized to your needs \n',
+        'Luxury clothing for cheap \n',
+        'The highest quality \n',
+        'The trendiest clothing  \n',
+        'Greater savings per unit \n',
       ],
     imageLink: require('./../assets/highTier.jpeg'),
     buttonText: 'Select Option',
@@ -69,8 +69,8 @@ export default function Subscriptions() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <h2>
-        Find your subscription
+      <h2 style={{fontSize: 40, paddingTop: 20, fontFamily: "sans-serif"}}>
+        Find Your Subscription
       </h2>
       <main>      
         <Container sx={{ py: 8 }} maxWidth="md">
@@ -135,7 +135,7 @@ export default function Subscriptions() {
                  </ul>
                </CardContent>
                <CardActions>
-                 <Button fullWidth variant={card.buttonVariant} onClick={() => {
+                 <Button fullWidth variant={card.buttonVariant} style={{color: '#6658d3', borderColor: '#6658d3'}} onClick={() => {
                      navigate("/boxSelection", {
                         state: { 
                             option: card.title,
