@@ -40,7 +40,9 @@ function Quiz({ addChoreLog }) {
           }
         }
         setPickTimes((prev) => prev + 1);
+        setSelected({})
       });
+      
     } else {
       setProfileMeta(
         name,
